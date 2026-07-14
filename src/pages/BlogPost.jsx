@@ -103,6 +103,8 @@ import { ArrowUpRight, Calendar, ArrowLeft, MapPin } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import SEO from "@/components/SEO";
 import { fetchBlogPost } from "@/lib/api";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+import ArticleSchema from "@/components/seo/ArticleSchema";
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -130,30 +132,28 @@ export default function BlogPost() {
     return <Navigate to="/blog" replace />;
   }
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    image: post.image,
-    datePublished: post.date,
-    author: { "@type": "Organization", name: "Game On India" },
-    publisher: { "@type": "Organization", name: "Game On India" },
-  };
-
   return (
     <div data-testid="blog-post-page">
-      <SEO
-        title={post.title}
-        description={post.excerpt}
-        path={`/blog/${post.slug}`}
-        image={post.image}
-        type="article"
-      />
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(articleSchema)}
-        </script>
-      </Helmet>
+      <>
+        <SEO
+          title={post.title}
+          description={post.excerpt}
+          path={`/blog/${post.slug}`}
+          image={post.image}
+          type="article"
+          keywords={`${post.category}, Game On India, ${post.title}`}
+        />
+
+        <BreadcrumbSchema
+          items={[
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: post.title, path: `/blog/${post.slug}` },
+          ]}
+        />
+
+        <ArticleSchema post={post} />
+      </>
 
       <section className="relative pt-40 pb-16 px-6 md:px-10 goi-noise overflow-hidden">
         <div className="absolute inset-0 goi-grid-bg opacity-30" />

@@ -11,6 +11,30 @@ import {
 import { toast } from "sonner";
 import { createContact } from "@/lib/api";
 import SEO from "@/components/SEO";
+import FAQSchema from "@/components/seo/FAQSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+const contactFaqs = [
+  {
+    question: "How can I book a birthday party?",
+    answer:
+      "Visit our Booking page or contact us through WhatsApp, phone or the enquiry form.",
+  },
+  {
+    question: "How quickly will Game On India respond?",
+    answer:
+      "Our team usually responds within 24 hours.",
+  },
+  {
+    question: "Can I contact a specific branch?",
+    answer:
+      "Yes. Visit the Branches page and choose your nearest location.",
+  },
+  {
+    question: "Do you accept franchise enquiries?",
+    answer:
+      "Yes. Select Franchise in the enquiry form or visit the Franchise page.",
+  },
+];
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -44,11 +68,23 @@ export default function Contact() {
 
   return (
     <>
-      <SEO
-        title="Contact Us"
-        description="Get in touch with Game On India. Phone, email, WhatsApp, and branch addresses for all locations."
-        path="/contact"
-      />
+     <>
+  <SEO
+    title="Contact Game On India"
+    description="Contact Game On India for bookings, birthday parties, franchise opportunities, support and general enquiries. Reach us via phone, email or WhatsApp."
+    path="/contact"
+    keywords="Contact Game On India, birthday booking, arcade contact, franchise enquiry"
+  />
+
+  <BreadcrumbSchema
+    items={[
+      { name: "Home", path: "/" },
+      { name: "Contact", path: "/contact" },
+    ]}
+  />
+
+  <FAQSchema faqs={contactFaqs} />
+</>
       <div
         className="pt-32 pb-24 px-6 md:px-10 max-w-7xl mx-auto"
         data-testid="contact-page"

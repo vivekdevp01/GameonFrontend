@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Clock, ArrowUpRight } from "lucide-react";
 import { fetchBranches } from "@/lib/api";
 import SEO from "@/components/SEO";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 function isOpenNow(open, close) {
   const now = new Date();
@@ -28,11 +29,21 @@ export default function Branches() {
 
   return (
     <>
-      <SEO
-        title="Our Branches"
-        description="Find your nearest Game On India branch in Jalandhar, Amritsar, Zirakpur, or Pune. Timings, directions, and facilities for each location."
-        path="/branches"
-      />
+      <>
+        <SEO
+          title="Game On India Branches | Arcade, VR & Bowling Across India"
+          description="Visit Game On India in Jalandhar, Amritsar, Zirakpur and Pune. Explore arcade games, VR experiences, bowling, birthday party venues and family entertainment."
+          path="/branches"
+          keywords="Game On branches, arcade near me, bowling near me, VR games India, family entertainment"
+        />
+
+        <BreadcrumbSchema
+          items={[
+            { name: "Home", path: "/" },
+            { name: "Branches", path: "/branches" },
+          ]}
+        />
+      </>
       <div
         className="pt-32 pb-24 px-6 md:px-10 max-w-7xl mx-auto"
         data-testid="branches-page"

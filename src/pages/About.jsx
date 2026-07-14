@@ -14,6 +14,7 @@ import {
   Award,
 } from "lucide-react";
 import { fetchBranches } from "@/lib/api";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 const HERO_IMG =
   "https://images.unsplash.com/photo-1558271697-dd9f331ca8b3?crop=entropy&cs=srgb&fm=jpg&q=85&w=1920";
@@ -111,9 +112,16 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About Us"
-        description="Learn about Game On India — our story, mission, and what makes us India's premium family entertainment destination."
+        title="About Game On India | India's Premium Family Entertainment Center"
+        description="Learn about Game On India, India's premium Family Entertainment Center offering arcade games, VR, bowling, birthday parties and family entertainment across Jalandhar, Amritsar, Zirakpur and Pune."
         path="/about-us"
+      />
+
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "About Us", path: "/about-us" },
+        ]}
       />
       <div data-testid="about-page">
         {/* HERO */}

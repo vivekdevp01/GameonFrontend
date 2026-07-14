@@ -11,6 +11,8 @@ import {
 import { toast } from "sonner";
 import { createFranchise } from "@/lib/api";
 import SEO from "@/components/SEO";
+import FAQSchema from "@/components/seo/FAQSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 const FAQS = [
   {
@@ -67,14 +69,30 @@ export default function Franchise() {
       setLoading(false);
     }
   };
+  const franchiseFaqs = FAQS.map((faq) => ({
+  question: faq.q,
+  answer: faq.a,
+}));
 
   return (
     <>
-      <SEO
-        title="Franchise Opportunities"
-        description="Own a Game On India franchise. Investment details, support, and how to get started with India's growing family entertainment brand."
-        path="/franchise"
-      />
+    <>
+  <SEO
+    title="Game On India Franchise Opportunities"
+    description="Start your Game On India franchise. Discover investment requirements, ROI, training, operational support and franchise opportunities across India."
+    path="/franchise"
+    keywords="Game On India franchise, arcade franchise, entertainment franchise, family entertainment business"
+  />
+
+  <BreadcrumbSchema
+    items={[
+      { name: "Home", path: "/" },
+      { name: "Franchise", path: "/franchise" },
+    ]}
+  />
+
+  <FAQSchema faqs={franchiseFaqs} />
+</>
       <div data-testid="franchise-page">
         <section className="pt-32 pb-16 px-6 md:px-10 max-w-7xl mx-auto">
           <div className="goi-overline mb-4">Franchise Opportunity</div>

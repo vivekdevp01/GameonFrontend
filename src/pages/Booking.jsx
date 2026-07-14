@@ -4,6 +4,8 @@ import { Calendar, Users, MapPin, Sparkles, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import { createBooking, fetchBranches } from "@/lib/api";
 import SEO from "@/components/SEO";
+import FAQSchema from "@/components/seo/FAQSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 const TYPES = [
   "Birthday Party",
@@ -58,6 +60,28 @@ export default function Booking() {
       setLoading(false);
     }
   };
+  const bookingFaqs = [
+    {
+      question: "How do I book a birthday party at Game On India?",
+      answer:
+        "Fill out the booking form with your preferred branch, date and guest count. Our team will contact you within 2 hours to confirm your booking.",
+    },
+    {
+      question: "How soon will my booking be confirmed?",
+      answer:
+        "Our team usually confirms bookings via phone or WhatsApp within 2 hours.",
+    },
+    {
+      question: "Can I book for corporate events?",
+      answer:
+        "Yes. We organize corporate events, team outings, school trips, birthday parties and private celebrations.",
+    },
+    {
+      question: "Can I customize my party package?",
+      answer:
+        "Yes. Food, decorations, cakes, games and entertainment can all be customized.",
+    },
+  ];
 
   if (done) {
     return (
@@ -110,11 +134,23 @@ export default function Booking() {
 
   return (
     <>
-      <SEO
-        title="Book Your Party"
-        description="Book your birthday party, group event, or arcade session at Game On India in under 60 seconds. Confirmed within 2 hours."
-        path="/booking"
-      />
+      <>
+        <SEO
+          title="Book Birthday Parties & Events | Game On India"
+          description="Book birthday parties, corporate events, school trips and family celebrations at Game On India. Instant booking request with confirmation within 2 hours."
+          path="/booking"
+          keywords="birthday party booking, arcade booking, VR booking, corporate events, school trips, Game On India"
+        />
+
+        <BreadcrumbSchema
+          items={[
+            { name: "Home", path: "/" },
+            { name: "Booking", path: "/booking" },
+          ]}
+        />
+
+        <FAQSchema faqs={bookingFaqs} />
+      </>
       <div
         className="pt-32 pb-24 px-6 md:px-10 max-w-6xl mx-auto"
         data-testid="booking-page"

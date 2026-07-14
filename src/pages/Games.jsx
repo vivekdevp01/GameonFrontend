@@ -1,6 +1,8 @@
 import { useEffect, useState, useMemo } from "react";
 import { fetchGames } from "@/lib/api";
 import SEO from "@/components/SEO";
+import FAQSchema from "@/components/seo/FAQSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 const CATEGORIES = [
   "All",
@@ -15,6 +17,27 @@ const CATEGORIES = [
   "Bowling",
 ];
 
+const gameFaqs = [
+  {
+    question: "What games are available at Game On India?",
+    answer:
+      "We offer arcade games, VR experiences, bowling, racing simulators, redemption games, claw machines, kids rides and more.",
+  },
+  {
+    question: "Are games suitable for children?",
+    answer: "Yes. We have games suitable for children, teenagers and adults.",
+  },
+  {
+    question: "Do all branches have the same games?",
+    answer:
+      "Each branch has a unique selection, although many popular attractions are available across multiple locations.",
+  },
+  {
+    question: "Do I need to book games in advance?",
+    answer:
+      "Walk-ins are welcome, but birthday parties and group events should be booked in advance.",
+  },
+];
 export default function Games() {
   const [games, setGames] = useState([]);
   const [category, setCategory] = useState("All");
@@ -33,11 +56,23 @@ export default function Games() {
 
   return (
     <>
-      <SEO
-        title="Arcade, VR & Bowling Games"
-        description="60+ arcade cabinets, next-gen VR, bowling lanes, racing sims and kids rides. Explore every game available at Game On India."
-        path="/games"
-      />
+      <>
+        <SEO
+          title="Arcade Games, VR, Bowling & Family Entertainment"
+          description="Explore arcade games, VR experiences, bowling lanes, racing simulators, redemption games, claw machines and kids rides at Game On India."
+          path="/games"
+          keywords="Arcade Games, VR Games, Bowling, Kids Games, Racing Games, Family Entertainment"
+        />
+
+        <BreadcrumbSchema
+          items={[
+            { name: "Home", path: "/" },
+            { name: "Games", path: "/games" },
+          ]}
+        />
+
+        <FAQSchema faqs={gameFaqs} />
+      </>
       <div
         className="pt-32 pb-24 px-6 md:px-10 max-w-7xl mx-auto"
         data-testid="games-page"

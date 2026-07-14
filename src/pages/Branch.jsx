@@ -15,6 +15,9 @@ import {
 } from "lucide-react";
 import { fetchBranch } from "@/lib/api";
 import SEO from "@/components/SEO";
+import FAQSchema from "@/components/seo/FAQSchema";
+import LocalBusinessSchema from "@/components/seo/LocalBusinessSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 function isOpenNow(open, close) {
   const now = new Date();
@@ -53,13 +56,35 @@ export default function Branch() {
   const mapNav = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(branch.map_query)}`;
   const waLink = `https://wa.me/${branch.whatsapp}?text=${encodeURIComponent(`Hi ${branch.name}, I'd like to enquire.`)}`;
 
+  const branchFaqs =
+    branch?.faqs?.map((faq) => ({
+      question: faq.q,
+      answer: faq.a,
+    })) || [];
   return (
     <>
       <SEO
-        title={`${branch?.city || "Branch"} — Arcade, VR & Bowling`}
-        description={`Visit Game On India in ${branch?.city || "your city"}. Arcade, VR, bowling, and party packages — timings, address, and booking info.`}
-        path={`/branches/${slug}`}
+        title={`${branch.city} Arcade, Bowling & VR Games`}
+        description={`Visit Game On India ${branch.city}. Enjoy arcade games, bowling, VR experiences, birthday parties, family entertainment and exclusive offers.`}
+        path={`/branches/${branch.slug}`}
+        keywords={`${branch.city} arcade, ${branch.city} bowling, ${branch.city} VR games, birthday party ${branch.city}`}
+        image={branch.hero_image}
       />
+
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Branches", path: "/branches" },
+          {
+            name: branch.city,
+            path: `/branches/${branch.slug}`,
+          },
+        ]}
+      />
+
+      <LocalBusinessSchema branch={branch} />
+
+      <FAQSchema faqs={branchFaqs} />
 
       <div data-testid={`branch-page-${slug}`}>
         {/* HERO */}

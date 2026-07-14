@@ -3,6 +3,7 @@ import { Bell } from "lucide-react";
 import { toast } from "sonner";
 import { fetchUpcoming, notifyMe } from "@/lib/api";
 import SEO from "@/components/SEO";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 export default function Upcoming() {
   const [stores, setStores] = useState([]);
@@ -35,9 +36,17 @@ export default function Upcoming() {
   return (
     <>
       <SEO
-        title="Upcoming Branches"
-        description="See where Game On India is opening next. New family entertainment centers coming soon across India."
+        title="Upcoming Game On India Branches"
+        description="Discover upcoming Game On India branches opening soon across India. Be the first to know when a new Family Entertainment Center launches near you."
         path="/upcoming-stores"
+        keywords="Game On India upcoming branches, new arcade, new game zone, upcoming entertainment center"
+      />
+
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Upcoming Branches", path: "/upcoming-stores" },
+        ]}
       />
       <div
         className="pt-32 pb-24 px-6 md:px-10 max-w-7xl mx-auto"

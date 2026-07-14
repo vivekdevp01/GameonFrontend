@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Shield, ArrowLeft } from "lucide-react";
 import SEO from "@/components/SEO";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 const SECTIONS = [
   {
@@ -70,8 +71,16 @@ export default function Privacy() {
     <>
       <SEO
         title="Privacy Policy"
-        description="Game On India's privacy policy — how we collect, use, and protect your data."
+        description="Read Game On India's Privacy Policy explaining how we collect, use, store and protect your personal information across all Game On India branches."
         path="/privacy"
+        keywords="Game On India Privacy Policy, privacy policy, personal information, customer data, arcade privacy"
+      />
+
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Privacy Policy", path: "/privacy" },
+        ]}
       />
       <div data-testid="privacy-page" className="min-h-screen">
         <section className="relative pt-40 pb-20 px-6 md:px-10 goi-noise overflow-hidden">

@@ -3,6 +3,8 @@ import { Briefcase, MapPin, Clock, Mail } from "lucide-react";
 import { toast } from "sonner";
 import { createCareer } from "@/lib/api";
 import SEO from "@/components/SEO";
+import FAQSchema from "@/components/seo/FAQSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 const OPENINGS = [
   { title: "Store Manager", branch: "Pune", type: "Full-time", exp: "3-5 yrs" },
@@ -32,7 +34,28 @@ const OPENINGS = [
     exp: "1-3 yrs",
   },
 ];
-
+const careerFaqs = [
+  {
+    question: "How can I apply for a job at Game On India?",
+    answer:
+      "Choose an open position, fill out the application form and submit your resume. Our HR team reviews all applications.",
+  },
+  {
+    question: "Which cities are currently hiring?",
+    answer:
+      "We regularly hire for Jalandhar, Amritsar, Zirakpur and Pune.",
+  },
+  {
+    question: "How long does the hiring process take?",
+    answer:
+      "Shortlisted candidates are usually contacted within 5 business days.",
+  },
+  {
+    question: "Can freshers apply?",
+    answer:
+      "Yes. Some roles are suitable for freshers while others require prior experience.",
+  },
+];
 export default function Career() {
   const [form, setForm] = useState({
     name: "",
@@ -71,11 +94,23 @@ export default function Career() {
 
   return (
     <>
-      <SEO
-        title="Careers"
-        description="Join the Game On India team. Current openings across our Jalandhar, Amritsar, Zirakpur & Pune branches."
-        path="/careers"
-      />
+      
+  <SEO
+    title="Careers | Join Game On India"
+    description="Explore careers at Game On India. Apply for jobs in Jalandhar, Amritsar, Zirakpur and Pune. Build your career with India's premium family entertainment brand."
+    path="/careers"
+    keywords="Game On India careers, arcade jobs, entertainment jobs, Pune jobs, Jalandhar jobs"
+  />
+
+  <BreadcrumbSchema
+    items={[
+      { name: "Home", path: "/" },
+      { name: "Careers", path: "/careers" },
+    ]}
+  />
+
+  <FAQSchema faqs={careerFaqs} />
+
       <div
         className="pt-32 pb-24 px-6 md:px-10 max-w-7xl mx-auto"
         data-testid="career-page"

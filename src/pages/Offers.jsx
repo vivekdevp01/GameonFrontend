@@ -2,6 +2,8 @@ import { useEffect, useState, useMemo } from "react";
 import { Gift } from "lucide-react";
 import { fetchOffers, fetchBranches } from "@/lib/api";
 import SEO from "@/components/SEO";
+import OfferSchema from "@/components/seo/OfferSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 export default function Offers() {
   const [offers, setOffers] = useState([]);
@@ -27,11 +29,21 @@ export default function Offers() {
 
   return (
     <>
-      <SEO
-        title="Party Packages & Offers"
-        description="Silver, Gold & Platinum party packages plus current offers at Game On India. Find the best deal for your next visit."
-        path="/offers"
-      />
+     <SEO
+  title="Party Packages & Offers"
+  description="Silver, Gold & Platinum birthday party packages, arcade offers, VR offers and bowling deals at Game On India."
+  path="/offers"
+  keywords="birthday party offers, arcade offers, VR offers, bowling offers, Game On India offers"
+/>
+
+<BreadcrumbSchema
+  items={[
+    { name: "Home", path: "/" },
+    { name: "Offers", path: "/offers" },
+  ]}
+/>
+
+<OfferSchema offers={filtered} />
       <div
         className="pt-32 pb-24 px-6 md:px-10 max-w-7xl mx-auto"
         data-testid="offers-page"

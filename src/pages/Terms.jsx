@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FileText, ArrowLeft } from "lucide-react";
 import SEO from "@/components/SEO";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 const SECTIONS = [
   {
@@ -80,11 +81,19 @@ const SECTIONS = [
 export default function Terms() {
   return (
     <>
-      <SEO
-        title="Terms & Conditions"
-        description="Game On India's terms and conditions for bookings, memberships, and venue use."
-        path="/terms"
-      />
+     <SEO
+  title="Terms & Conditions"
+  description="Read Game On India's Terms & Conditions for bookings, memberships, birthday parties, game cards, and venue usage."
+  path="/terms"
+  keywords="Game On India terms, booking policy, birthday party terms, arcade rules"
+/>
+
+<BreadcrumbSchema
+  items={[
+    { name: "Home", path: "/" },
+    { name: "Terms & Conditions", path: "/terms" },
+  ]}
+/>
       <div data-testid="terms-page" className="min-h-screen">
         <section className="relative pt-40 pb-20 px-6 md:px-10 goi-noise overflow-hidden">
           <div className="absolute inset-0 goi-grid-bg opacity-30" />

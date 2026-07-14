@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { fetchBranches } from "@/lib/api";
 import SEO from "@/components/SEO";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 const CATEGORIES = [
   "All",
@@ -49,10 +50,19 @@ export default function Gallery() {
   return (
     <>
       <SEO
-        title="Gallery"
-        description="Photos from Game On India — arcade, VR, bowling, parties, and events across all branches."
+        title="Gallery | Game On India Arcade, VR & Birthday Parties"
+        description="Browse photos from Game On India featuring arcade games, VR experiences, bowling, birthday parties, corporate events and school visits across Jalandhar, Amritsar, Zirakpur and Pune."
         path="/gallery"
+        keywords="Game On gallery, arcade photos, VR games, birthday party gallery, bowling photos"
       />
+
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Gallery", path: "/gallery" },
+        ]}
+      />
+
       <div
         className="pt-32 pb-24 px-6 md:px-10 max-w-7xl mx-auto"
         data-testid="gallery-page"

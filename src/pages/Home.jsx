@@ -187,9 +187,10 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="India's Premium Game Zone"
-        description="Arcade, VR, bowling, racing sims, and unforgettable birthday parties across Jalandhar, Amritsar, Zirakpur & Pune. Book your visit today."
+        title="Game On India | Arcade, VR, Bowling & Birthday Parties"
+        description="India's premium Family Entertainment Center with Arcade Games, VR Experiences, Bowling, Racing Simulators and Birthday Parties across Jalandhar, Amritsar, Zirakpur & Pune."
         path="/"
+        keywords="Game On India, arcade games, VR games, bowling, birthday party, family entertainment, kids activities, game zone, Jalandhar, Amritsar, Zirakpur, Pune"
       />
       <div data-testid="home-page">
         {/* HERO with prominent branch selection */}
