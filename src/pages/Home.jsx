@@ -85,6 +85,32 @@ const TICKETS = [
   },
 ];
 
+const BRANCH_COLOR_PALETTE = [
+  {
+    grad: "from-brand-magenta to-pink-600",
+    glow: "shadow-[0_8px_30px_-6px_rgba(255,0,85,0.5)]",
+  },
+  {
+    grad: "from-brand-cyan to-blue-600",
+    glow: "shadow-[0_8px_30px_-6px_rgba(0,170,255,0.5)]",
+  },
+  {
+    grad: "from-yellow-400 to-orange-500",
+    glow: "shadow-[0_8px_30px_-6px_rgba(251,191,36,0.5)]",
+  },
+  {
+    grad: "from-violet-500 to-purple-700",
+    glow: "shadow-[0_8px_30px_-6px_rgba(139,92,246,0.5)]",
+  },
+  {
+    grad: "from-brand-lime to-green-600",
+    glow: "shadow-[0_8px_30px_-6px_rgba(163,230,53,0.5)]",
+  },
+  {
+    grad: "from-rose-400 to-brand-magenta",
+    glow: "shadow-[0_8px_30px_-6px_rgba(251,113,133,0.5)]",
+  },
+];
 function TicketCard({ t }) {
   return (
     <div
@@ -168,7 +194,7 @@ export default function Home() {
       <div data-testid="home-page">
         {/* HERO with prominent branch selection */}
         <section
-          className="relative min-h-screen flex items-end overflow-hidden goi-noise"
+          className="relative min-h-[100dvh] flex items-center md:items-end overflow-hidden goi-noise"
           data-testid="hero-section"
         >
           <>
@@ -200,15 +226,14 @@ export default function Home() {
           </>
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/30" />
           <div className="absolute inset-0 goi-grid-bg opacity-40" />
-
-          <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 pb-20 pt-32 w-full">
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+          <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 pb-6 sm:pb-16 md:pb-20 pt-6 sm:pt-24 md:pt-32 w-full">
             <div className="max-w-4xl">
               <div className="goi-overline mb-4 flex items-center gap-2">
                 <Sparkles className="w-3.5 h-3.5" /> India's Premium Game Zone
               </div>
               <h1 className="font-display font-black uppercase text-5xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tighter mb-4">
-                Level up your{" "}
-                <span className="text-brand-magenta">weekend</span>.
+                Level up your <span className="goi-text-cycle">weekend</span>
               </h1>
               <p className="text-base sm:text-lg text-white/70 max-w-2xl mb-6 leading-relaxed">
                 60+ arcade cabinets. Next-gen VR. Bowling. Racing sims. Kids
@@ -217,44 +242,60 @@ export default function Home() {
 
               {/* Prominent branch selector — top of homepage */}
               <div
-                className="goi-glass rounded-2xl p-5 mb-6"
+                className="bg-black/70 backdrop-blur-xl border border-white/15 shadow-2xl shadow-black/60 rounded-2xl p-5 mb-6 relative overflow-hidden"
                 data-testid="hero-branch-selector"
               >
-                <div className="flex items-center gap-2 mb-3">
+                {/* Faint grid texture inside the panel for extra depth, matching your goi-grid-bg elsewhere */}
+                <div className="absolute inset-0 goi-grid-bg opacity-[0.07] pointer-events-none" />
+
+                <div className="relative flex items-center gap-2 mb-3">
                   <MapPin className="w-4 h-4 text-brand-cyan" />
                   <span className="text-[11px] tracking-widest uppercase text-brand-cyan font-bold">
                     1 · Pick your branch
                   </span>
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  {["jalandhar", "amritsar", "zirakpur", "pune"].map((slug) => {
-                    const b = branches.find((x) => x.slug === slug);
-                    const open = b
-                      ? isOpenNow(b.timings.open, b.timings.close)
-                      : false;
+
+                <div className="relative grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
+                  {branches.map((b, i) => {
+                    const open = isOpenNow(b.timings.open, b.timings.close);
+                    const color =
+                      BRANCH_COLOR_PALETTE[i % BRANCH_COLOR_PALETTE.length];
                     return (
                       <Link
-                        key={slug}
-                        to={`/branches/${slug}`}
-                        data-testid={`hero-branch-${slug}`}
-                        className="group flex items-center justify-between px-4 py-3 rounded-xl bg-white/5 border border-white/10 hover:border-brand-magenta hover:bg-brand-magenta/10 transition"
+                        key={b.slug}
+                        to={`/branches/${b.slug}`}
+                        data-testid={`hero-branch-${b.slug}`}
+                        className={`group relative overflow-hidden flex items-center justify-between px-4 py-3.5 rounded-xl bg-gradient-to-br ${color.grad} ${color.glow} hover:shadow-[0_12px_40px_-4px_rgba(0,0,0,0.6)] hover:scale-[1.04] hover:-translate-y-0.5 transition-all duration-300`}
                       >
-                        <div className="text-left">
-                          <div className="font-display font-bold text-sm text-white group-hover:text-brand-magenta">
-                            {slug.charAt(0).toUpperCase() + slug.slice(1)}
+                        {/* Diagonal texture overlay for a less flat, more tactile surface */}
+                        <div
+                          className="absolute inset-0 opacity-[0.08] pointer-events-none"
+                          style={{
+                            backgroundImage:
+                              "repeating-linear-gradient(45deg, white 0px, white 1px, transparent 1px, transparent 8px)",
+                          }}
+                        />
+                        {/* Corner shine */}
+                        <div className="absolute -top-8 -right-8 w-20 h-20 bg-white/20 rounded-full blur-2xl pointer-events-none" />
+
+                        <div className="text-left relative z-10">
+                          <div className="font-display font-black text-sm text-white drop-shadow-sm">
+                            {b.city ||
+                              b.slug.charAt(0).toUpperCase() + b.slug.slice(1)}
                           </div>
-                          <div className="flex items-center gap-1 mt-0.5">
+                          <div className="flex items-center gap-1.5 mt-1">
                             <span
-                              className={`w-1.5 h-1.5 rounded-full ${open ? "bg-brand-lime" : "bg-red-400"} animate-pulse`}
-                            ></span>
-                            <span
-                              className={`text-[10px] tracking-widest uppercase font-bold ${open ? "text-brand-lime" : "text-red-400"}`}
-                            >
-                              {open ? "Open" : "Closed"}
+                              className={`w-1.5 h-1.5 rounded-full ${open ? "bg-white" : "bg-white/40"} animate-pulse`}
+                            />
+                            <span className="text-[10px] tracking-widest uppercase font-bold text-white/90">
+                              {open ? "Open Now" : "Closed"}
                             </span>
                           </div>
                         </div>
-                        <ArrowUpRight className="w-4 h-4 text-white/40 group-hover:text-brand-magenta" />
+                        <ArrowUpRight className="w-4 h-4 text-white/70 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all relative z-10 shrink-0" />
+
+                        {/* Shine sweep on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/15 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </Link>
                     );
                   })}

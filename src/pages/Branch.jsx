@@ -63,14 +63,18 @@ export default function Branch() {
 
       <div data-testid={`branch-page-${slug}`}>
         {/* HERO */}
-        <section className="relative min-h-[70vh] flex items-end overflow-hidden">
+        {/* Drop-in replacement for the Branch page hero <section>.
+    Same pattern already applied to Home.jsx and About.jsx. */}
+
+        <section className="relative min-h-[42vh] sm:min-h-[50vh] md:min-h-[70vh] flex items-center md:items-end overflow-hidden">
           <img
             src={branch.hero_image}
             alt={branch.city}
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/40" />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 pt-40 pb-16 w-full">
+
+          <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 pt-24 sm:pt-28 md:pt-40 pb-8 sm:pb-12 md:pb-16 w-full">
             <div className="goi-overline mb-4">Game On India</div>
             <h1 className="font-display font-black uppercase text-5xl sm:text-7xl mb-4">
               {branch.city}

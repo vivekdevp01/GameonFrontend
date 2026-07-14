@@ -38,7 +38,7 @@ function Layout({ children }) {
       {!isAdmin && <Footer />}
       {/* {!isAdmin && <WhatsAppFloat />} */}
       {!isAdmin && <ChatWidget />}
-      {!isAdmin && <SpinWheelPopup />}
+      {/* {!isAdmin && <SpinWheelPopup />} */}
     </>
   );
 }
@@ -61,7 +61,7 @@ function App() {
             <Route path="/careers" element={<Career />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/booking" element={<Booking />} />
-             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/about-us" element={<About />} />
             <Route
