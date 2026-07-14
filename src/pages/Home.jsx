@@ -340,20 +340,23 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 mt-2">
                 <Link
                   to="/booking"
                   data-testid="hero-book-party-btn"
-                  className="goi-btn-primary"
+                  className="goi-btn-primary w-full sm:w-auto justify-center"
                 >
-                  Book Your Party <ArrowUpRight className="w-4 h-4" />
+                  Book Your Party
+                  <ArrowUpRight className="w-4 h-4" />
                 </Link>
+
                 <Link
                   to="/games"
                   data-testid="hero-view-games-btn"
-                  className="goi-btn-outline"
+                  className="goi-btn-outline w-full sm:w-auto justify-center"
                 >
-                  <Play className="w-4 h-4" /> Explore Games
+                  <Play className="w-4 h-4" />
+                  Explore Games
                 </Link>
               </div>
             </div>
