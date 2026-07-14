@@ -76,7 +76,10 @@ export default function Branch() {
 
           <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 pt-24 sm:pt-28 md:pt-40 pb-8 sm:pb-12 md:pb-16 w-full">
             <div className="goi-overline mb-4">Game On India</div>
-            <h1 className="font-display font-black uppercase text-5xl sm:text-7xl mb-4">
+            <h1
+              className="font-display font-black uppercase mb-4 leading-[0.95] break-words"
+              style={{ fontSize: "clamp(2rem, 9vw, 4.5rem)" }}
+            >
               {branch.city}
             </h1>
             <div className="flex flex-wrap items-center gap-4 mb-8">
