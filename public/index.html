@@ -4,26 +4,41 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#050505" />
+
     <meta
       name="description"
       content="India's premium Family Entertainment Center. Arcade, VR, bowling, racing sims, and unforgettable birthday parties across Jalandhar, Amritsar, Zirakpur & Pune. Play. Eat. Celebrate."
     />
-    <link rel="icon" type="image/png" href="%PUBLIC_URL%/gameonlogo.png" />
+    <link rel="canonical" href="https://gameonplay.in/" />
 
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/gameonlogo.png" />
-
-    <meta property="og:image" content="%PUBLIC_URL%/gameonlogo.png" />
-
-    <meta name="twitter:image" content="%PUBLIC_URL%/gameonlogo.png" />
-    <!-- <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> -->
+    <!-- Favicon — using your actual logo file. Browser tabs render this at
+         a tiny fixed size (16x16 / 32x32), so how "big" it looks depends
+         on how tightly the source PNG is cropped around the logo, not on
+         this markup — see note below. -->
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/gameon.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/gameon.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-    <!--
-      Fonts (Unbounded, Manrope) are already loaded via @import in index.css,
-      so no font <link> tags are needed here — removed the old unused Inter
-      link that was left over from the starter template and never used.
-    -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Game On India — Play. Eat. Celebrate." />
+    <meta
+      property="og:description"
+      content="India's premium Family Entertainment Center. Arcade, VR, bowling, racing sims, and unforgettable birthday parties across Jalandhar, Amritsar, Zirakpur & Pune."
+    />
+    <meta property="og:url" content="https://gameonplay.in/" />
+    <meta property="og:site_name" content="Game On India" />
+    <meta property="og:image" content="https://gameonplay.in/gameon.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Game On India — Play. Eat. Celebrate."
+    />
+    <meta
+      name="twitter:description"
+      content="India's premium Family Entertainment Center. Arcade, VR, bowling, racing sims, and unforgettable birthday parties."
+    />
+    <meta name="twitter:image" content="https://gameonplay.in/gameon.png" />
 
     <title>
       Game On India | Play. Eat. Celebrate. — Family Entertainment Center
@@ -91,7 +106,7 @@
                   return u.toString(1) + ".people (stub)";
                 },
                 o =
-                  "init me ws ys ps bs capture je Di ks register register_once register_for_session unregister unregister_for_session Ps getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Es $s createPersonProfile Is opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Ss debug xs getPageViewId captureTraceFeedback captureTraceMetric".split(
+                  "init me ws ys ps bs capture je Di ks register register_once register_for_session unregister unregister_for_session Ps getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Es $s createPersonProfile Is opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Ss debug xs getPageViewId captureTraceFeedback captureTraceMetric".split(
                     " ",
                   ),
                 n = 0;
