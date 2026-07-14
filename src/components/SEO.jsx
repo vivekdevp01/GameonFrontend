@@ -28,12 +28,7 @@ import { Helmet } from "react-helmet-async";
 const SITE_NAME = "Game On India";
 const SITE_URL = "https://gameonplay.in";
 
-const DEFAULT_TITLE =
-  "Play. Eat. Celebrate. | Game On India";
-
-const fullTitle = title
-  ? `${title} | ${SITE_NAME}`
-  : DEFAULT_TITLE;
+const DEFAULT_TITLE = "Play. Eat. Celebrate. | Game On India";
 
 const DEFAULT_DESCRIPTION =
   "India's premium Family Entertainment Center. Arcade, VR, Bowling, Birthday Parties, Racing Sims and Kids Entertainment across Jalandhar, Amritsar, Zirakpur & Pune.";
@@ -57,6 +52,7 @@ export default function SEO({
   noindex = false,
 }) {
   // const fullTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE;
+  const fullTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE;
   // const fullTitle = title || DEFAULT_TITLE;
   const url = `${SITE_URL}${path}`;
 
