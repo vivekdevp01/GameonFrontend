@@ -52,7 +52,8 @@ export default function SEO({
   keywords = DEFAULT_KEYWORDS,
   noindex = false,
 }) {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE;
+  // const fullTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE;
+  const fullTitle = title || DEFAULT_TITLE;
   const url = `${SITE_URL}${path}`;
 
   return (

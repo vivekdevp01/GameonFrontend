@@ -8,6 +8,7 @@
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
 
+    <!-- Browser Theme -->
     <meta name="theme-color" content="#050505" />
     <meta name="color-scheme" content="dark light" />
 
@@ -15,7 +16,7 @@
     <title>Game On India</title>
 
     <!-- Icons -->
-    <link rel="icon" href="%PUBLIC_URL%/gameon.png" />
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/gameon.png" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/gameon.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
@@ -90,66 +91,9 @@
 
     <div id="root"></div>
 
-    <!-- ===============================
-         PostHog Analytics
-         =============================== -->
-    <script>
-      !(function (t, e) {
-        var o, n, p, r;
-        e.__SV ||
-          ((window.posthog = e),
-          (e._i = []),
-          (e.init = function (i, s, a) {
-            function g(t, e) {
-              var o = e.split(".");
-              if (o.length === 2) {
-                t = t[o[0]];
-                e = o[1];
-              }
-              t[e] = function () {
-                t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
-              };
-            }
-
-            p = t.createElement("script");
-            p.type = "text/javascript";
-            p.crossOrigin = "anonymous";
-            p.async = true;
-            p.src =
-              s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") +
-              "/static/array.js";
-
-            r = t.getElementsByTagName("script")[0];
-            r.parentNode.insertBefore(p, r);
-
-            var u = e;
-            if (a) u = e[a] = [];
-            else a = "posthog";
-
-            u.people = u.people || [];
-
-            o =
-              "init capture identify alias reset register unregister get_property get_session_id startSessionRecording stopSessionRecording captureException".split(
-                " ",
-              );
-
-            for (n = 0; n < o.length; n++) {
-              g(u, o[n]);
-            }
-
-            e._i.push([i, s, a]);
-          }),
-          (e.__SV = 1));
-      })(document, window.posthog || []);
-
-      posthog.init("YOUR_POSTHOG_KEY", {
-        api_host: "https://us.i.posthog.com",
-        person_profiles: "identified_only",
-        session_recording: {
-          recordCrossOriginIframes: true,
-          capturePerformance: false,
-        },
-      });
-    </script>
+    <!--
+      PostHog removed.
+      Add Google Analytics or PostHog later only if you actually use them.
+    -->
   </body>
 </html>
