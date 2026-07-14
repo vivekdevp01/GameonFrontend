@@ -405,7 +405,7 @@ export default function Home() {
         </section>
         {/* <VideoShowcase /> */}
         {/* 2 · UPCOMING BRANCHES */}
-        <section
+        {/* <section
           className="py-24 md:py-32 px-6 md:px-10 max-w-7xl mx-auto"
           data-testid="upcoming-section"
         >
@@ -453,6 +453,74 @@ export default function Home() {
                   <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-brand-magenta"
+                      style={{ width: `${s.progress}%` }}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section> */}
+        {/* Drop-in replacement for the entire Upcoming Stores <section> in Home.jsx */}
+
+        <section
+          className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-10 max-w-7xl mx-auto"
+          data-testid="upcoming-section"
+        >
+          <div className="flex items-end justify-between mb-8 sm:mb-12 flex-wrap gap-4">
+            <div>
+              <div className="goi-overline mb-3 sm:mb-4">2 · Coming soon</div>
+              <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl">
+                Expanding across India.
+              </h2>
+            </div>
+            <Link to="/upcoming-stores" className="goi-btn-outline text-sm">
+              All upcoming <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            {upcoming.map((s) => (
+              <div
+                key={s.id || s.slug}
+                className="group goi-card rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-[0_16px_40px_-8px_rgba(0,0,0,0.6)] transition-all duration-300"
+                data-testid={`upcoming-preview-${s.slug}`}
+              >
+                <div className="relative aspect-[4/5] sm:aspect-[4/3] overflow-hidden">
+                  <img
+                    src={s.image}
+                    alt={s.city}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+
+                  <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 flex items-center gap-1.5 px-2 sm:px-2.5 py-1 rounded-full text-[8px] sm:text-[9px] tracking-widest uppercase bg-brand-cyan text-brand-ink font-black shadow-[0_0_12px_rgba(0,240,255,0.5)]">
+                    <span className="w-1 h-1 rounded-full bg-brand-ink animate-pulse" />
+                    Coming Soon
+                  </div>
+
+                  <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-3 sm:left-3 sm:right-3">
+                    <div className="font-display font-black text-lg sm:text-2xl text-white leading-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+                      {s.city}
+                    </div>
+                    <div className="text-[10px] sm:text-xs text-white/70 mt-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+                      {s.expected}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-3 sm:p-5">
+                  <div className="flex items-center justify-between text-[10px] sm:text-xs mb-2 sm:mb-3">
+                    <span className="text-white/50 uppercase tracking-wide font-medium">
+                      Progress
+                    </span>
+                    <span className="text-brand-cyan font-black">
+                      {s.progress}%
+                    </span>
+                  </div>
+                  <div className="h-1.5 sm:h-2 bg-white/5 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-brand-magenta to-brand-cyan rounded-full shadow-[0_0_10px_rgba(255,0,85,0.6)] transition-all duration-1000 ease-out"
                       style={{ width: `${s.progress}%` }}
                     />
                   </div>
