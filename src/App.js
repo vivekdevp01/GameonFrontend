@@ -1,5 +1,11 @@
 import "@/index.css";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 import { Toaster } from "sonner";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -18,26 +24,67 @@ import Booking from "@/pages/Booking";
 import AdminLogin from "@/pages/admin/AdminLogin";
 import AdminDashboard from "@/pages/admin/AdminDashboard";
 import ProtectedRoute from "@/pages/admin/ProtectedRoute";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import PageLoader from "./components/layout/PageLoader";
 import About from "./pages/About";
 import ChatWidget from "./components/layout/ChatWidget";
-import SpinWheelPopup from "./components/layout/SpinWheelPopup";
+import { useEffect, useState } from "react";
+// import SpinWheelPopup from "./components/layout/SpinWheelPopup";
 import Blog from "./pages/Blogs";
 import BlogPost from "./pages/BlogPost";
+// import {  } from "react-router-dom";
 
+// function Layout({ children }) {
+//   const loc = useLocation();
+//   const isAdmin = loc.pathname.startsWith("/admin");
+//   return (
+//     <>
+//       {!isAdmin && <Navbar />}
+//       <main>{children}</main>
+//       {!isAdmin && <Footer />}
+//       {/* {!isAdmin && <WhatsAppFloat />} */}
+//       {!isAdmin && <ChatWidget />}
+//       {/* {!isAdmin && <SpinWheelPopup />} */}
+//     </>
+//   );
+// }
 function Layout({ children }) {
   const loc = useLocation();
   const isAdmin = loc.pathname.startsWith("/admin");
+
+  const [showChatWidget, setShowChatWidget] = useState(loc.pathname !== "/");
+
+  useEffect(() => {
+    if (loc.pathname !== "/") {
+      setShowChatWidget(true);
+      return;
+    }
+
+    const handleScroll = () => {
+      setShowChatWidget(window.scrollY > 300);
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [loc.pathname]);
+
   return (
     <>
       {!isAdmin && <Navbar />}
+
       <main>{children}</main>
+
       {!isAdmin && <Footer />}
+
       {/* {!isAdmin && <WhatsAppFloat />} */}
-      {!isAdmin && <ChatWidget />}
+
+      {!isAdmin && showChatWidget && <ChatWidget />}
+
       {/* {!isAdmin && <SpinWheelPopup />} */}
     </>
   );
