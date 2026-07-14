@@ -349,18 +349,21 @@ export default function Branch() {
 
           {tab === "gallery" && (
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {branch.gallery.map((src, i) => (
-                <div
-                  key={i}
-                  className="goi-card rounded-2xl overflow-hidden aspect-video"
-                >
-                  <img
-                    src={src}
-                    alt={`${branch.city} ${i}`}
-                    className="w-full h-full object-cover hover:scale-105 transition duration-500"
-                  />
-                </div>
-              ))}
+              {branch.gallery.map((img, i) => {
+                const src = typeof img === "string" ? img : img.url;
+                return (
+                  <div
+                    key={i}
+                    className="goi-card rounded-2xl overflow-hidden aspect-video"
+                  >
+                    <img
+                      src={src}
+                      alt={`${branch.city} ${i + 1}`}
+                      className="w-full h-full object-cover hover:scale-105 transition duration-500"
+                    />
+                  </div>
+                );
+              })}
             </div>
           )}
 

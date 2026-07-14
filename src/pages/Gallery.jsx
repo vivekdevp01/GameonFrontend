@@ -20,13 +20,31 @@ export default function Gallery() {
       .catch(() => {});
   }, []);
 
-  const images = useMemo(() => {
+  // Each gallery item is now { url, category } instead of a plain string —
+  // matches the updated backend model + GalleryUploadField.
+  const allImages = useMemo(() => {
     const all = [];
     branches.forEach((b) =>
-      (b.gallery || []).forEach((src) => all.push({ src, city: b.city })),
+      (b.gallery || []).forEach((img) =>
+        all.push({
+          src: typeof img === "string" ? img : img.url,
+          category:
+            typeof img === "string" ? "Game Zone" : img.category || "Game Zone",
+          city: b.city,
+        }),
+      ),
     );
     return all;
   }, [branches]);
+
+  // The actual fix — filter by the selected category
+  const images = useMemo(
+    () =>
+      cat === "All"
+        ? allImages
+        : allImages.filter((img) => img.category === cat),
+    [allImages, cat],
+  );
 
   return (
     <>
@@ -60,25 +78,36 @@ export default function Gallery() {
           ))}
         </div>
 
-        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-          {images.map((img, i) => (
-            <div
-              key={i}
-              className="break-inside-avoid goi-card rounded-2xl overflow-hidden group"
-              data-testid={`gallery-image-${i}`}
-            >
-              <img
-                src={img.src}
-                alt={img.city}
-                className="w-full group-hover:scale-105 transition duration-700"
-              />
-              <div className="p-3 flex justify-between text-xs">
-                <span className="text-white/60">{img.city}</span>
-                <span className="text-brand-cyan">Game On</span>
+        {images.length === 0 ? (
+          <p
+            className="text-white/40 text-center py-20"
+            data-testid="gallery-empty-state"
+          >
+            No photos in this category yet.
+          </p>
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {images.map((img, i) => (
+              <div
+                key={i}
+                className="goi-card rounded-2xl overflow-hidden group"
+                data-testid={`gallery-image-${i}`}
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={img.src}
+                    alt={img.city}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                  />
+                </div>
+                <div className="p-3 flex justify-between text-xs">
+                  <span className="text-white/60">{img.city}</span>
+                  <span className="text-brand-cyan">Game On</span>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </>
   );
