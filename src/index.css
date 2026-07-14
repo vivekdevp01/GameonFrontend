@@ -296,3 +296,9 @@
     background-position: 0% 50%;
   }
 }
+
+@media (max-width: 390px) {
+  [data-testid="hero-section"] .hero-content {
+    padding-top: 7rem;
+  }
+}

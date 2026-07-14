@@ -227,12 +227,50 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/30" />
           <div className="absolute inset-0 goi-grid-bg opacity-40" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 pb-6 sm:pb-16 md:pb-20 pt-6 sm:pt-24 md:pt-32 w-full">
+          {/* <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 pb-6 sm:pb-16 md:pb-20 pt-6 sm:pt-24 md:pt-32 w-full"> */}
+          <div
+            className="
+    relative
+    z-10
+    w-full
+    max-w-7xl
+    mx-auto
+
+    px-5
+    sm:px-6
+    md:px-10
+
+    pt-24
+    min-[390px]:pt-28
+    sm:pt-24
+    md:pt-32
+
+    pb-28
+    sm:pb-16
+    md:pb-20
+  "
+          >
             <div className="max-w-4xl">
-              <div className="goi-overline mb-4 flex items-center gap-2">
+              {/* <div className="goi-overline mb-4 flex items-center gap-2"> */}
+              <div className="goi-overline mb-5 flex items-center gap-2">
                 <Sparkles className="w-3.5 h-3.5" /> India's Premium Game Zone
               </div>
-              <h1 className="font-display font-black uppercase text-5xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tighter mb-4">
+              {/* <h1 className="font-display font-black uppercase text-5xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tighter mb-4"> */}
+              <h1
+                className="
+    font-display
+    font-black
+    uppercase
+
+    text-[clamp(2.8rem,10vw,5rem)]
+
+    leading-[0.88]
+
+    tracking-tighter
+
+    mb-5
+  "
+              >
                 Level up your <span className="goi-text-cycle">weekend</span>
               </h1>
               <p className="text-base sm:text-lg text-white/70 max-w-2xl mb-6 leading-relaxed">
