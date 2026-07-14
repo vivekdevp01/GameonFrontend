@@ -2,7 +2,7 @@ import axios from "axios";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 export const API = `${BACKEND_URL}/api`;
-export const LOGO_URL = `${process.env.PUBLIC_URL}/gameonlogo.png`;
+export const LOGO_URL = `${process.env.PUBLIC_URL}/gameon.png`;
 
 export const api = axios.create({
   baseURL: API,
