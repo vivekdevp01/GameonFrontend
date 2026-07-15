@@ -99,3 +99,6 @@ export const adminSubmissions = (kind) =>
 // }
 export const adminUpdateSubmissionStatus = (kind, id, status) =>
   api.put(`/admin/submissions/${kind}/${id}`, { status }).then((r) => r.data);
+
+export const fetchGalleryImages = (params) =>
+  api.get("/gallery-images", { params }).then((r) => r.data);

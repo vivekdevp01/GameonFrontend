@@ -412,10 +412,10 @@ export default function Footer() {
               <li className="flex gap-3 items-center">
                 <Mail className="w-5 h-5 text-brand-magenta shrink-0" />
                 <a
-                  href={`mailto:${info.hq_email || "hello@gameonindia.in"}`}
+                  href={`mailto:${info.hq_email || "support@gameonplay.in"}`}
                   className="hover:text-brand-cyan"
                 >
-                  {info.hq_email || "hello@gameonindia.in"}
+                  {info.hq_email || "support@gameonplay.in"}
                 </a>
               </li>
             </ul>

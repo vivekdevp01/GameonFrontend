@@ -21,13 +21,11 @@ const contactFaqs = [
   },
   {
     question: "How quickly will Game On India respond?",
-    answer:
-      "Our team usually responds within 24 hours.",
+    answer: "Our team usually responds within 24 hours.",
   },
   {
     question: "Can I contact a specific branch?",
-    answer:
-      "Yes. Visit the Branches page and choose your nearest location.",
+    answer: "Yes. Visit the Branches page and choose your nearest location.",
   },
   {
     question: "Do you accept franchise enquiries?",
@@ -68,23 +66,23 @@ export default function Contact() {
 
   return (
     <>
-     <>
-  <SEO
-    title="Contact Game On India"
-    description="Contact Game On India for bookings, birthday parties, franchise opportunities, support and general enquiries. Reach us via phone, email or WhatsApp."
-    path="/contact"
-    keywords="Contact Game On India, birthday booking, arcade contact, franchise enquiry"
-  />
+      <>
+        <SEO
+          title="Contact Game On India"
+          description="Contact Game On India for bookings, birthday parties, franchise opportunities, support and general enquiries. Reach us via phone, email or WhatsApp."
+          path="/contact"
+          keywords="Contact Game On India, birthday booking, arcade contact, franchise enquiry"
+        />
 
-  <BreadcrumbSchema
-    items={[
-      { name: "Home", path: "/" },
-      { name: "Contact", path: "/contact" },
-    ]}
-  />
+        <BreadcrumbSchema
+          items={[
+            { name: "Home", path: "/" },
+            { name: "Contact", path: "/contact" },
+          ]}
+        />
 
-  <FAQSchema faqs={contactFaqs} />
-</>
+        <FAQSchema faqs={contactFaqs} />
+      </>
       <div
         className="pt-32 pb-24 px-6 md:px-10 max-w-7xl mx-auto"
         data-testid="contact-page"
@@ -176,7 +174,8 @@ export default function Contact() {
                 <li className="flex gap-3">
                   <MapPin className="w-5 h-5 text-brand-magenta shrink-0" />
                   <span className="text-white/80">
-                    Viva Collage Mall, Jalandhar, Punjab 144001
+                    BKC One, G-Block, Bandra Kurla Complex, Bandra East, Mumbai
+                    -400051
                   </span>
                 </li>
                 <li className="flex gap-3 items-center">
@@ -185,22 +184,22 @@ export default function Contact() {
                     href="tel:+919876543210"
                     className="text-white/80 hover:text-brand-cyan"
                   >
-                    +91 98765 43210
+                    +91 77106 61100
                   </a>
                 </li>
                 <li className="flex gap-3 items-center">
                   <Mail className="w-5 h-5 text-brand-magenta shrink-0" />
                   <a
-                    href="mailto:hello@gameonindia.in"
+                    href="mailto:support@gameonplay.in"
                     className="text-white/80 hover:text-brand-cyan"
                   >
-                    hello@gameonindia.in
+                    support@gameonplay.in
                   </a>
                 </li>
                 <li className="flex gap-3 items-center">
                   <MessageCircle className="w-5 h-5 text-brand-magenta shrink-0" />
                   <a
-                    href="https://wa.me/919876543210"
+                    href="https://wa.me/+917710661100"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white/80 hover:text-brand-cyan"
@@ -216,7 +215,7 @@ export default function Contact() {
                 {[Instagram, Facebook, Youtube].map((Icon, i) => (
                   <a
                     key={i}
-                    href="#"
+                    href="https://www.instagram.com/game_on_jalandhar"
                     className="w-11 h-11 flex items-center justify-center rounded-full border border-white/10 hover:border-brand-magenta hover:text-brand-magenta transition"
                   >
                     <Icon className="w-5 h-5" />

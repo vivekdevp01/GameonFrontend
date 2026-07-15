@@ -12,14 +12,26 @@
     <meta name="theme-color" content="#050505" />
     <meta name="color-scheme" content="dark light" />
 
-    <!-- Browser title before React loads -->
-    <!-- <title>Game On India</title> -->
+    <!-- Default title before React loads -->
     <title>Game On India | Arcade, VR, Bowling & Birthday Parties</title>
 
-    <!-- Icons -->
-    <link rel="icon" type="image/png" href="%PUBLIC_URL%/gameon.png" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/gameon.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!-- Favicons -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="%PUBLIC_URL%/favicon-96x96.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="%PUBLIC_URL%/apple-touch-icon.png"
+    />
+
+    <!-- PWA -->
+    <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
 
     <!-- Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,9 +46,9 @@
     />
     <meta name="format-detection" content="telephone=no" />
 
-    <!-- ===============================
-         ORGANIZATION SCHEMA
-         =============================== -->
+    <!-- ======================================
+         Organization Structured Data
+         ====================================== -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -50,9 +62,9 @@
       }
     </script>
 
-    <!-- ===============================
-         WEBSITE SCHEMA
-         =============================== -->
+    <!-- ======================================
+         Website Structured Data
+         ====================================== -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -67,7 +79,7 @@
       }
     </script>
 
-    <!-- Ignore harmless browser warning -->
+    <!-- Ignore harmless Chrome warning -->
     <script>
       window.addEventListener(
         "error",
@@ -93,8 +105,9 @@
     <div id="root"></div>
 
     <!--
-      PostHog removed.
-      Add Google Analytics or PostHog later only if you actually use them.
+      Analytics intentionally omitted.
+      Add Google Analytics, Google Tag Manager,
+      Microsoft Clarity, or PostHog only if needed.
     -->
   </body>
 </html>

@@ -276,14 +276,21 @@ export default function Branch() {
                       <div
                         key={c.id}
                         data-testid={`card-offer-${c.id}`}
-                        className={`goi-card rounded-2xl p-6 relative overflow-hidden ${best ? "border-brand-magenta/50 glow-pink" : ""}`}
+                        className={`goi-card rounded-2xl p-6 relative ${best ? "border-brand-magenta/50 glow-pink" : ""}`}
                       >
+                        {/* Decorative blur circle now scoped to its OWN overflow-hidden
+              wrapper, matching the card's rounded corners — instead of
+              overflow-hidden living on the whole card, which was also
+              clipping the badge below. */}
+                        <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+                          <div className="absolute -right-6 -top-6 w-24 h-24 bg-brand-cyan/10 rounded-full blur-2xl" />
+                        </div>
+
                         {best && (
-                          <div className="absolute -top-3 left-6 bg-brand-magenta text-white text-[10px] tracking-widest px-3 py-1 rounded-full font-bold">
+                          <div className="absolute -top-3 left-6 bg-brand-magenta text-white text-[10px] tracking-widest px-3 py-1 rounded-full font-bold z-10">
                             BEST VALUE
                           </div>
                         )}
-                        <div className="absolute -right-6 -top-6 w-24 h-24 bg-brand-cyan/10 rounded-full blur-2xl" />
                         <div className="relative">
                           <div className="text-xs uppercase tracking-widest text-white/50 mb-2">
                             Recharge

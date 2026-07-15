@@ -42,8 +42,7 @@ const careerFaqs = [
   },
   {
     question: "Which cities are currently hiring?",
-    answer:
-      "We regularly hire for Jalandhar, Amritsar, Zirakpur and Pune.",
+    answer: "We regularly hire for Jalandhar, Amritsar, Zirakpur and Pune.",
   },
   {
     question: "How long does the hiring process take?",
@@ -94,22 +93,21 @@ export default function Career() {
 
   return (
     <>
-      
-  <SEO
-    title="Careers | Join Game On India"
-    description="Explore careers at Game On India. Apply for jobs in Jalandhar, Amritsar, Zirakpur and Pune. Build your career with India's premium family entertainment brand."
-    path="/careers"
-    keywords="Game On India careers, arcade jobs, entertainment jobs, Pune jobs, Jalandhar jobs"
-  />
+      <SEO
+        title="Careers | Join Game On India"
+        description="Explore careers at Game On India. Apply for jobs in Jalandhar, Amritsar, Zirakpur and Pune. Build your career with India's premium family entertainment brand."
+        path="/careers"
+        keywords="Game On India careers, arcade jobs, entertainment jobs, Pune jobs, Jalandhar jobs"
+      />
 
-  <BreadcrumbSchema
-    items={[
-      { name: "Home", path: "/" },
-      { name: "Careers", path: "/careers" },
-    ]}
-  />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Careers", path: "/careers" },
+        ]}
+      />
 
-  <FAQSchema faqs={careerFaqs} />
+      <FAQSchema faqs={careerFaqs} />
 
       <div
         className="pt-32 pb-24 px-6 md:px-10 max-w-7xl mx-auto"
@@ -264,10 +262,10 @@ export default function Career() {
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-brand-magenta" />
                 <a
-                  href="mailto:hr@gameonindia.in"
+                  href="mailto:support@gameonplay.in"
                   className="text-white/80 hover:text-brand-cyan"
                 >
-                  hr@gameonindia.in
+                  support@gameonplay.in
                 </a>
               </div>
             </div>
