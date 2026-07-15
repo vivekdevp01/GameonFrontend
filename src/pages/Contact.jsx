@@ -228,7 +228,8 @@ export default function Contact() {
 
         <div className="mt-12 goi-card rounded-2xl overflow-hidden">
           <iframe
-            src="https://www.google.com/maps?q=Viva+Collage+Mall+Jalandhar&output=embed"
+            // src="https://www.google.com/maps?q=Viva+Collage+Mall+Jalandhar&output=embed"
+            src="https://www.google.com/maps?q=BKC+One,+G-Block,+Bandra+Kurla+Complex,+Bandra+East,+Mumbai+-+400051&output=embed"
             className="w-full h-80 border-0"
             title="head office map"
             loading="lazy"
